@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.filedb.mapper.StudentMapper">
+
+    <resultMap id="stuResultMap" type="Student">
+        <id property="id" column="sno"></id>
+        <result property="name" column="sname"></result>
+        <result property="sex" column="ssex"></result>
+        <result property="birthday" column="sbirthday"></result>
+        <result property="class1" column="class"></result>
+    </resultMap>
+
+    <!--int insert(Student student);-->
+    <insert id="insertStudent">
+        INSERT INTO students VALUES (1,'liu',0,'1998-12-22','2')
+    </insert>
+
+    <!--List<Student> getAllStudent();-->
+    <select id="getAllStudent" resultMap="stuResultMap">
+        SELECT * FROM students
+    </select>
+</mapper>
